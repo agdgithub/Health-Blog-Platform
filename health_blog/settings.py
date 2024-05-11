@@ -10,6 +10,8 @@ if not os.environ.get('DJANGO_SECRET_KEY'):
 # Use the secret key from environment variables
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
+DEBUG = False
+
 # Define the installed apps
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -57,13 +59,23 @@ LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Define the allowed hosts
-ALLOWED_HOSTS = ['*']  # Adjust according to your deployment
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']  # Adjust according to your deployment
 
 # Database configuration
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'sHbvXBgqFvQpbOonxrLstzCVtsYGwhMH',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '46620',
     }
 }
 
@@ -75,3 +87,5 @@ MIDDLEWARE = [
     # Other middleware classes...
 ]
 
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
