@@ -1,0 +1,44 @@
+<!-- blog/templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h2>Latest Articles</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Author</th>
+            <th>Published on</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in latest_articles %}
+        <tr>
+            <td><a href="{% url 'article_detail' article_id=article.id %}">{{ article.title }}</a></td>
+            <td>{{ article.content }}</td>
+            <td>{{ article.author }}</td>
+            <td>{{ article.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
