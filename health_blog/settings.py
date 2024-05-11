@@ -59,7 +59,7 @@ LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Define the allowed hosts
-ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']  # Adjust according to your deployment
+ALLOWED_HOSTS = ['*']  # Adjust according to your deployment
 
 # Database configuration
 # DATABASES = {
@@ -87,5 +87,3 @@ MIDDLEWARE = [
     # Other middleware classes...
 ]
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
