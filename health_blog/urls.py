@@ -11,3 +11,4 @@ urlpatterns = [
     path('add_article/', views.add_article, name='add_article'),  # Add article page
     path('article/<int:article_id>/', views.article_detail, name='article_detail'),
 ]
+
