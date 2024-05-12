@@ -11,7 +11,7 @@ if not os.environ.get('DJANGO_SECRET_KEY'):
 # Use the secret key from environment variables
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
-DEBUG = False
+# DEBUG = False
 
 # Define the installed apps
 INSTALLED_APPS = [
@@ -63,9 +63,18 @@ LOGOUT_REDIRECT_URL = '/login/'
 ALLOWED_HOSTS = ['*']  # Adjust according to your deployment
 
 # Database configuration
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+# }
+
+print("DATABASE_URL from environment:", os.environ.get('DATABASE_URL'))
+
+# Database configuration
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
+
+print("Database configuration:", DATABASES)
 
 MIDDLEWARE = [
     # Other middleware classes...
